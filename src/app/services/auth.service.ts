@@ -1,17 +1,6 @@
 import { Injectable } from '@angular/core';
-import { OAuthService, AuthConfig } from 'angular-oauth2-oidc';
-import { environment } from '../../environments/environment';
-
-export const authConfig: AuthConfig = {
-  issuer: environment.oAuthConfig.issuer,
-  clientId: environment.oAuthConfig.clientId,
-  redirectUri: environment.oAuthConfig.redirectUri,
-  postLogoutRedirectUri: environment.oAuthConfig.postLogoutRedirectUri,
-  responseType: environment.oAuthConfig.responseType,
-  scope: environment.oAuthConfig.scope,
-  requireHttps: environment.oAuthConfig.requireHttps,
-  showDebugInformation: false,
-};
+import { OAuthService } from 'angular-oauth2-oidc';
+import { authConfig } from '../common/config';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -34,7 +23,9 @@ export class AuthService {
   logout() {
     this.oauth.logOut();
   }
-
+  public onRefreshToken() {
+    return this.oauth.refreshToken();
+  }
   get isLoggedIn(): boolean {
     return this.oauth.hasValidAccessToken();
   }
@@ -45,8 +36,5 @@ export class AuthService {
 
   get identityClaims(): object {
     return this.oauth.getIdentityClaims() as object;
-  }
-  public onRefreshToken() {
-    return this.oauth.refreshToken();
   }
 }

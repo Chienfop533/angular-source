@@ -8,7 +8,6 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   imports: [RouterModule, SharedModule, ModalModule.forRoot()],
-  exports: [RouterModule, SharedModule],
   declarations: [
     HomeComponent,
     ConversationsComponent,

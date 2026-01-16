@@ -1,8 +1,4 @@
-import {
-  APP_INITIALIZER,
-  ApplicationConfig,
-  importProvidersFrom,
-} from '@angular/core';
+import { APP_INITIALIZER, ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { provideOAuthClient } from 'angular-oauth2-oidc';
@@ -16,14 +12,8 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
 import { HttpClientInterceptor } from './services/interceptor.service';
 import { routes } from './app.routes';
+import { configToast } from './common/config';
 
-const configToast = {
-  timeOut: 3000,
-  tapToDismiss: true,
-  closeButton: true,
-  newestOnTop: true,
-  progressBar: true,
-};
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),

@@ -26,7 +26,7 @@ export class ConversationsComponent implements OnInit {
     this.definitionsService
       .getByType('ConversationStatus')
       .subscribe((res: any) => {
-        this.dataSourceStatus = res.data;
+        this.dataSourceStatus = res;
       });
   }
 

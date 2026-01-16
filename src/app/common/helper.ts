@@ -13,9 +13,6 @@ export function objectToFormData(
   namespace = ''
 ): FormData {
   for (let property in obj) {
-    // if (!obj.hasOwnProperty(property) || !obj[property]) {
-    //   continue;
-    // }
     if (obj[property] == 'userId') {
       debugger;
     }
