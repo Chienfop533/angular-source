@@ -1,4 +1,46 @@
-<div class="home-container">
-  <h1 class="m-5">Welcome to Home</h1>
-  <p>This is the home page.</p>
+<div class="card" style="max-width: 1200px">
+  <dx-form
+    #form
+    class="form-audio"
+    [formData]="model"
+    labelLocation="left"
+    [colCount]="1"
+  >
+    <dxi-item [label]="{ text: 'File ghi âm' }">
+      <div *dxTemplate>
+        <app-file-dropzone
+          (fileOutput)="model.file = $event"
+        ></app-file-dropzone>
+      </div>
+      <dxi-validation-rule type="required" message="Vui lòng chọn file ghi âm">
+      </dxi-validation-rule>
+    </dxi-item>
+    <dxi-item
+      dataField="description"
+      [label]="{ text: 'Mô tả' }"
+      [editorOptions]="{
+        placeholder: 'Nhập mô tả cho đoạn ghi âm',
+        stylingMode: 'outlined'
+      }"
+    >
+      <dxi-validation-rule type="required" message="Vui lòng nhập mô tả">
+      </dxi-validation-rule>
+    </dxi-item>
+    <dxi-item>
+      <div *dxTemplate class="button-group">
+        <dx-button
+          text="Lưu nháp"
+          type="default"
+          icon="save"
+          (onClick)="saveDraft()"
+        ></dx-button>
+        <dx-button
+          text="Xử lý"
+          type="success"
+          icon="check"
+          (onClick)="processAudio()"
+        ></dx-button>
+      </div>
+    </dxi-item>
+  </dx-form>
 </div>

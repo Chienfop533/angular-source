@@ -3,7 +3,13 @@ body {
   color: #333;
   font-size: 14px;
 }
-
+body p {
+  padding: 0;
+  margin: 0;
+}
+body a {
+  text-decoration: unset;
+}
 .loader {
   width: 50px;
   padding: 8px;
@@ -23,4 +29,50 @@ body {
   to {
     transform: rotate(1turn);
   }
+}
+
+body .card {
+  border: none;
+  box-shadow: 0 0 4px 1px #e6e6e6;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.dx-header-row > td {
+  background-color: #e04403;
+  color: #fff;
+}
+.dx-datagrid-rowsview .dx-row-focused.dx-data-row > td:not(.dx-focused) {
+  background-color: rgba(243, 164, 130, 0.2) !important;
+  color: #333 !important;
+}
+.dx-datagrid-rowsview .dx-row-focused.dx-data-row > td {
+  border-bottom-color: rgba(243, 164, 130, 0.2) !important;
+}
+.dx-template-wrapper a.code-link:hover {
+  color: #e04403;
+}
+
+.dx-template-wrapper a.code-link {
+  display: inline-block;
+  position: relative;
+  color: #e04403;
+  cursor: pointer;
+}
+
+.dx-template-wrapper a.code-link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #e04403;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.dx-template-wrapper a.code-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }

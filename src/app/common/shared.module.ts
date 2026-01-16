@@ -18,9 +18,13 @@ import {
   DxListModule,
   DxMenuModule,
   DxDropDownButtonModule,
+  DxFileUploaderModule,
 } from 'devextreme-angular';
+import { FileDropzoneComponent } from '../components/file-dropzone/file-dropzone.component';
 
+const commonComponents = [FileDropzoneComponent];
 @NgModule({
+  declarations: [...commonComponents],
   imports: [
     CommonModule,
     FormsModule,
@@ -41,6 +45,7 @@ import {
     DxListModule,
     DxMenuModule,
     DxDropDownButtonModule,
+    DxFileUploaderModule,
   ],
   exports: [
     CommonModule,
@@ -62,6 +67,8 @@ import {
     DxListModule,
     DxMenuModule,
     DxDropDownButtonModule,
+    DxFileUploaderModule,
+    ...commonComponents,
   ],
 })
 export class SharedModule {}

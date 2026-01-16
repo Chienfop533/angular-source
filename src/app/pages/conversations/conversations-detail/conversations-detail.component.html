@@ -1,0 +1,46 @@
+<div
+  bsModal
+  #lgModal="bs-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="dialog-sizes-name1"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-sizes-name1" class="modal-title pull-left">
+          {{ "Chi tiết đoạn hội thoại" }}
+        </h4>
+        <button
+          type="button"
+          class="btn-close close pull-right"
+          (click)="lgModal.hide()"
+          aria-label="Close"
+        >
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">ok</div>
+      <div class="modal-footer">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-right">
+              <div>
+                <dx-button
+                  (onClick)="lgModal.hide()"
+                  icon="fa fa-times"
+                  type="danger"
+                  stylingMode="outlined"
+                  text="Đóng"
+                  style="margin-right: 8px; border-radius: 4px"
+                >
+                </dx-button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="position-relative">
+  <dx-file-uploader
+    class="files-custom"
+    #fileUploader
+    [showFileList]="false"
+    [multiple]="false"
+    labelText=""
+    [selectButtonText]="selectButtonText"
+    uploadMode="useForm"
+    accept=".mp3,.m4a,.aac,.wav,.flac,.ogg,.amr"
+    (onValueChanged)="changeFileUploaded($event)"
+    [value]="fileUploaded"
+  ></dx-file-uploader>
+  <div class="uploaded-file" *ngIf="fileUploaded && fileUploaded.length > 0">
+    <span><b>File đã chọn: </b>{{ fileUploaded[0]?.name }}</span>
+    <span class="delete-file" (click)="deleteFileSelected()"
+      ><i
+        class="fa-solid fa-xmark"
+        style="font-size: 18px; vertical-align: bottom"
+      ></i
+    ></span>
+  </div>
+</div>

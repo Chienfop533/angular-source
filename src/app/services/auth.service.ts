@@ -46,4 +46,7 @@ export class AuthService {
   get identityClaims(): object {
     return this.oauth.getIdentityClaims() as object;
   }
+  public onRefreshToken() {
+    return this.oauth.refreshToken();
+  }
 }

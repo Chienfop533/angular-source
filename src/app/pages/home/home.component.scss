@@ -1,0 +1,14 @@
+::ng-deep
+  .form-audio
+  .dx-layout-manager
+  .dx-label-h-align.dx-flex-layout:not(.dx-field-item-label-align) {
+  align-items: center;
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 4px;
+}

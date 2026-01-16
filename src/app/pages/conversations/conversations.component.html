@@ -1,0 +1,91 @@
+<div class="card" style="max-width: 1500px">
+  <dx-data-grid
+    #targetGrid
+    [dataSource]="dataSource"
+    keyExpr="id"
+    [errorRowEnabled]="false"
+    [showBorders]="true"
+    [remoteOperations]="true"
+    [showRowLines]="true"
+    [showColumnLines]="true"
+    [rowAlternationEnabled]="true"
+    [allowColumnResizing]="true"
+    [wordWrapEnabled]="true"
+    noDataText="Không có dữ liệu !"
+    [focusedRowEnabled]="true"
+  >
+    <dxo-selection mode="single"></dxo-selection>
+    <dxo-filter-row [visible]="false"></dxo-filter-row>
+    <dxo-editing
+      [allowUpdating]="false"
+      [allowDeleting]="false"
+      [useIcons]="true"
+    >
+      <dxo-texts
+        confirmDeleteMessage=" Bạn có chắc chắn muốn xóa bản ghi này không?"
+      ></dxo-texts>
+    </dxo-editing>
+    <dxo-paging [pageSize]="10"></dxo-paging>
+    <dxo-pager
+      [showPageSizeSelector]="true"
+      [allowedPageSizes]="[5, 10, 25, 50, 100]"
+      [visible]="true"
+      [showPageSizeSelector]="true"
+      [showNavigationButtons]="true"
+      [showInfo]="true"
+      infoText="Trang #{0}. Tổng: {1} ({2} danh mục đơn vị tính
+          )"
+    >
+    </dxo-pager>
+    <dxi-column
+      name="No"
+      [width]="50"
+      cellTemplate="NoTemplate"
+      caption="{{ 'STT' }}"
+    ></dxi-column>
+    <div *dxTemplate="let data of 'NoTemplate'">
+      {{
+        data.component.pageIndex() * data.component.pageSize() +
+          data.rowIndex +
+          1
+      }}
+    </div>
+    <dxi-column
+      dataField="description"
+      caption="Mô tả"
+      cellTemplate="descriptionTemplate"
+    >
+      <div *dxTemplate="let res of 'descriptionTemplate'">
+        <p>
+          <b>
+            <a class="code-link" (click)="handleDetail(res.data)">{{
+              res.value
+            }}</a></b
+          >
+        </p>
+      </div>
+    </dxi-column>
+    <dxi-column dataField="status" caption="Trạng thái">
+      <dxo-lookup
+        [dataSource]="dataSourceStatus"
+        displayExpr="name"
+        valueExpr="code"
+        [allowClearing]="true"
+      ></dxo-lookup>
+    </dxi-column>
+
+    <dxi-column
+      dataField="createdAt"
+      caption="Ngày tạo"
+      dataType="date"
+      format="dd/MM/yyyy HH:mm"
+    ></dxi-column>
+    <dxi-column
+      dataField="updatedAt"
+      caption="Ngày cập nhật"
+      dataType="date"
+      format="dd/MM/yyyy HH:mm"
+    ></dxi-column>
+  </dx-data-grid>
+</div>
+<app-conversations-detail #conversationsDetail></app-conversations-detail>

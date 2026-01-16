@@ -1,31 +1,43 @@
-<nav class="navbar">
-  <div class="navbar-container">
-    <a routerLink="/">
-      <img src="logo-bcm.png" alt="Becamex Group Logo" class="h-10" />
-    </a>
+<nav class="navbar-wrapper">
+  <a routerLink="/">
+    <img
+      src="assets/logo-bcm.png"
+      alt="Becamex Group Logo"
+      style="height: 40px"
+    />
+  </a>
 
-    <ul class="navbar-menu">
-      <li>
-        <a
-          routerLink="/"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-          data-text="Trang chủ"
-          >Trang chủ</a
-        >
-      </li>
-      <li><a routerLink="/conversations" data-text="Hội thoại">Hội thoại</a></li>
-    </ul>
-  </div>
+  <ul class="navbar-menu">
+    <li>
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        data-text="Trang chủ"
+        >Trang chủ</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/conversations"
+        routerLinkActive="active"
+        data-text="Hội thoại"
+        >Hội thoại</a
+      >
+    </li>
+  </ul>
   <div class="user-menu">
     <button class="user-btn" (click)="toggleDropdown()">
-      <i class="fa-solid fa-circle-user text-[28px]"></i>
+      <i
+        class="fa-solid fa-circle-user"
+        style="font-size: 28px; color: #ccc"
+      ></i>
       <span class="user-info">
         <span>{{ currentUser?.fullName }}</span>
-        <span>{{ currentUser?.email }}</span>
+        <span style="font-size: 12px">{{ currentUser?.email }}</span>
       </span>
     </button>
-    <div class="dropdown-menu" *ngIf="isDropdownOpen">
+    <div class="nav-dropdown-menu" *ngIf="isDropdownOpen">
       <button class="dropdown-item logout-btn" (click)="logout()">
         <i class="fa-solid fa-right-from-bracket"></i>
         <span>Đăng xuất</span>
