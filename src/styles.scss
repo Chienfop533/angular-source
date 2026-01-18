@@ -2,14 +2,18 @@
 body {
   color: #333;
   font-size: 14px;
+  h3 {
+    font-size: 18px;
+  }
+  p {
+    padding: 0;
+    margin: 0;
+  }
+  a {
+    text-decoration: unset;
+  }
 }
-body p {
-  padding: 0;
-  margin: 0;
-}
-body a {
-  text-decoration: unset;
-}
+
 .loader {
   width: 50px;
   padding: 8px;
@@ -75,4 +79,33 @@ body .card {
 .dx-template-wrapper a.code-link:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+.toast-container .ngx-toastr {
+  box-shadow: unset !important;
+}
+.content-wrapper {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+.dx-pager .dx-page-sizes .dx-selection,
+.dx-pager .dx-pages .dx-selection {
+  background-color: #e04403 !important;
+  color: #fff !important;
+}
+.modal-header h3 {
+  font-size: 18px;
+}
+.modal-header {
+  padding: 8px 16px !important;
+}
+.modal-footer {
+  padding: 8px 16px !important;
+}
+.modal-footer > * {
+  margin: unset !important;
+}
+.header-title {
+  color: #e04403;
+  border-bottom: 1px solid #e04403;
+  width: fit-content;
 }

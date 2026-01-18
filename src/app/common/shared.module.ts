@@ -21,12 +21,15 @@ import {
   DxFileUploaderModule,
 } from 'devextreme-angular';
 import { FileDropzoneComponent } from '../components/file-dropzone/file-dropzone.component';
+import { BreadCrumbComponent } from '../components/breadcrumb/breadcrumb.component';
+import { RouterModule } from '@angular/router';
 
-const commonComponents = [FileDropzoneComponent];
+const commonComponents = [FileDropzoneComponent, BreadCrumbComponent];
 @NgModule({
   declarations: [...commonComponents],
   imports: [
     CommonModule,
+    RouterModule,
     FormsModule,
     ReactiveFormsModule,
     DxDataGridModule,
@@ -49,6 +52,7 @@ const commonComponents = [FileDropzoneComponent];
   ],
   exports: [
     CommonModule,
+    RouterModule,
     FormsModule,
     ReactiveFormsModule,
     DxDataGridModule,

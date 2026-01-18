@@ -16,7 +16,7 @@ export class HomeComponent {
   constructor(
     private toastService: ToastService,
     private conversationsService: ConversationsService,
-    private router: Router
+    private router: Router,
   ) {}
   saveDraft() {
     let result = this.form.instance.validate();

@@ -5,13 +5,16 @@
   tabindex="-1"
   role="dialog"
   aria-labelledby="dialog-sizes-name1"
+  [config]="{
+    ignoreBackdropClick: true,
+  }"
 >
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 id="dialog-sizes-name1" class="modal-title pull-left">
+        <h3 id="dialog-sizes-name1" class="modal-title pull-left">
           {{ "Chi tiết đoạn hội thoại" }}
-        </h4>
+        </h3>
         <button
           type="button"
           class="btn-close close pull-right"
@@ -21,7 +24,136 @@
           <span aria-hidden="true" class="visually-hidden">&times;</span>
         </button>
       </div>
-      <div class="modal-body">ok</div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12">
+            <p><b>Mô tả: </b> {{ detailData?.description }}</p>
+            <p><b>File hội thoại: </b> {{ detailData?.file?.name }}</p>
+            <div #wave class="my-1"></div>
+            <div class="d-flex align-items-center justify-content-between">
+              <span
+                >{{ formatTime(currentTime) }} /
+                {{ formatTime(duration) }}</span
+              >
+              <div class="d-flex justify-content-center mt-2">
+                <button
+                  class="btn btn-outline-primary btn-sm me-2"
+                  (click)="togglePlay()"
+                >
+                  {{ isPlaying ? "Tạm dừng" : "Phát" }}
+                </button>
+
+                <button
+                  class="btn btn-outline-danger btn-sm"
+                  (click)="stopAudio()"
+                >
+                  Dừng
+                </button>
+              </div>
+              <span></span>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+              <h3 class="header-title">Kết quả phân tích hội thoại:</h3>
+              <div class="d-flex align-items-center gap-2">
+                <small class="text-muted"
+                  >{{ detailData?.result?.messages?.length }} tin nhắn</small
+                >
+                <button class="btn btn-outline-primary btn-sm">
+                  Tải hội thoại
+                </button>
+                <button class="btn btn-outline-primary btn-sm">
+                  Tải tóm tắt
+                </button>
+              </div>
+            </div>
+            <hr class="my-1" />
+
+            <ul
+              class="list-group list-group-flush p-2"
+              style="max-height: 60vh; overflow: auto"
+            >
+              <li
+                *ngFor="let m of detailData?.result?.messages; let idx = index"
+                [attr.id]="'msg-' + idx"
+                class="p-2 mb-2 rounded transition-all list-group-item"
+                [ngClass]="{
+                  'bg-warning-subtle border-warning': currentIndex === idx,
+                  'bg-light': currentIndex !== idx,
+                }"
+              >
+                <div
+                  class="d-flex w-100 justify-content-between align-items-start"
+                >
+                  <div class="d-flex align-items-center">
+                    <div>
+                      <div class="fw-semibold d-flex align-items-center">
+                        <!-- badge speaker -->
+                        <span
+                          class="badge me-2 text-uppercase"
+                          [ngStyle]="{
+                            backgroundColor: getSpeakerColor(m.speaker),
+                          }"
+                        >
+                          {{ m.speaker }}
+                        </span>
+
+                        <!-- play segment -->
+                        <span
+                          class="badge rounded-pill text-bg-primary me-2 btn-speaker"
+                          (click)="playSegment(m, idx)"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-volume-up"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48
+                0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z"
+                            />
+                            <path
+                              d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48
+                5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z"
+                            />
+                            <path
+                              d="M10.025 8a4.5 4.5 0 0 1-1.318 3.182L8 10.475A3.5 3.5 0 0 0 9.025 8c0-.966-.392-1.841-1.025-2.475l.707-.707A4.5
+                4.5 0 0 1 10.025 8M7 4a.5.5 0 0 0-.812-.39L3.825 5.5H1.5A.5.5 0 0 0 1 6v4a.5.5 0 0 0 .5.5h2.325l2.363
+                1.89A.5.5 0 0 0 7 12zM4.312 6.39 6 5.04v5.92L4.312 9.61A.5.5 0 0 0 4 9.5H2v-3h2a.5.5 0 0 0 .312-.11"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+
+                      <div class="text-muted small ps-1">
+                        <span
+                          >{{ compactTime(m.start) }} -
+                          {{ compactTime(m.end) }}</span
+                        >
+                        <span class="fw-semibold">
+                          : {{ formatDuration(m.duration) }}</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <span class="text-muted small">#{{ idx + 1 }}</span>
+                  </div>
+                </div>
+
+                <p class="mt-2 mb-0" style="white-space: pre-wrap">
+                  {{ m.text }}
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <div class="modal-footer">
         <div class="row">
           <div class="col-md-12">
@@ -33,7 +165,7 @@
                   type="danger"
                   stylingMode="outlined"
                   text="Đóng"
-                  style="margin-right: 8px; border-radius: 4px"
+                  style="border-radius: 4px"
                 >
                 </dx-button>
               </div>

@@ -1,0 +1,11 @@
+.breadcrumb-item a,
+.breadcrumb-item i {
+  color: #e04403;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.breadcrumb-item a:hover,
+.breadcrumb-item:hover i {
+  color: #e18a64;
+}

@@ -6,20 +6,20 @@
     labelLocation="left"
     [colCount]="1"
   >
-    <dxi-item [label]="{ text: 'File ghi âm' }">
+    <dxi-item [label]="{ text: 'Đoạn hội thoại' }">
       <div *dxTemplate>
         <app-file-dropzone
           (fileOutput)="model.file = $event"
         ></app-file-dropzone>
       </div>
-      <dxi-validation-rule type="required" message="Vui lòng chọn file ghi âm">
+      <dxi-validation-rule type="required" message="Vui lòng chọn file hội thoại">
       </dxi-validation-rule>
     </dxi-item>
     <dxi-item
       dataField="description"
       [label]="{ text: 'Mô tả' }"
       [editorOptions]="{
-        placeholder: 'Nhập mô tả cho đoạn ghi âm',
+        placeholder: 'Nhập mô tả cho đoạn hội thoại',
         stylingMode: 'outlined'
       }"
     >

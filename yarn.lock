@@ -2218,7 +2218,7 @@ ajv@^8.0.0, ajv@^8.9.0:
     json-schema-traverse "^1.0.0"
     require-from-string "^2.0.2"
 
-angular-oauth2-oidc@17.0.2:
+angular-oauth2-oidc@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/angular-oauth2-oidc/-/angular-oauth2-oidc-17.0.2.tgz#1f57df5cff8f6e5217aa020b2ed5e7282fc8f9d7"
   integrity sha512-zYgeLmAnu1g8XAYZK+csAsCQBDhgp9ffBv/eArEnujGxNPTeK00bREHWObtehflpQdSn+k9rY2D15ChCSydyVw==
@@ -2939,7 +2939,7 @@ devextreme-angular@23.1.4:
     inferno-server "7.4.11"
     tslib "^2.2.0"
 
-devextreme-aspnet-data-nojquery@3.0.0:
+devextreme-aspnet-data-nojquery@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/devextreme-aspnet-data-nojquery/-/devextreme-aspnet-data-nojquery-3.0.0.tgz#2a116c62128e7aede2c2d22ca8ea1e4de3893852"
   integrity sha512-2wkePdGr4+nnSUZ8PUFR9biFhvMD2gztz/Yim7Iu/szAQJcgitfgOa12xqIQn4B5xpOm3+kupjccpBsED9nDMA==
@@ -4866,7 +4866,7 @@ ngx-bootstrap@^11.0.2:
   dependencies:
     tslib "^2.3.0"
 
-ngx-toastr@18.0.0:
+ngx-toastr@^18.0.0:
   version "18.0.0"
   resolved "https://registry.yarnpkg.com/ngx-toastr/-/ngx-toastr-18.0.0.tgz#0016e897108817eb6b2ee16ff130b4c42fc214b0"
   integrity sha512-jZ3rOG6kygl8ittY8OltIMSo47P1VStuS01igm3MZXK6InJwHVvxU7wDHI/HGMlXSyNvWncyOuFHnnMEAifsew==
@@ -6600,6 +6600,11 @@ watchpack@^2.4.1:
   dependencies:
     glob-to-regexp "^0.4.1"
     graceful-fs "^4.1.2"
+
+wavesurfer.js@^7.12.1:
+  version "7.12.1"
+  resolved "https://registry.yarnpkg.com/wavesurfer.js/-/wavesurfer.js-7.12.1.tgz#4b46dc5ee1a0429c7c33ca78397105c4a087f1fb"
+  integrity sha512-NswPjVHxk0Q1F/VMRemCPUzSojjuHHisQrBqQiRXg7MVbe3f5vQ6r0rTTXA/a/neC/4hnOEC4YpXca4LpH0SUg==
 
 wbuf@^1.1.0, wbuf@^1.7.3:
   version "1.7.3"
