@@ -27,12 +27,12 @@ export const appConfig: ApplicationConfig = {
       useClass: HttpClientInterceptor,
       multi: true,
     },
-    // {
-    //   provide: APP_INITIALIZER,
-    //   useFactory: (authService: AuthService) => () => authService.init(),
-    //   deps: [AuthService],
-    //   multi: true,
-    // },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (authService: AuthService) => () => authService.init(),
+      deps: [AuthService],
+      multi: true,
+    },
     AppModule,
   ],
 };
